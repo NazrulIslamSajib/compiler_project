@@ -1,0 +1,53 @@
+#include<bits/stdc++.h>
+using namespace std;
+int f=0,f2=0;
+string call(string s)
+{
+    long long sz=s.size();
+    long long i;
+    string cnt="";
+    for(i=0;i<sz;i++)
+    {
+        if(s[i]=='"')
+        {
+            f2=1;
+        }
+        if(s[i]=='/' && s[i+1]=='/' && f2==0)
+        {
+            break;
+        }
+        if(s[i]=='/' && s[i+1]=='*' && f2==0)
+        {
+            f=1;
+        }
+        if(s[i]=='*' && s[i+1]=='/' && f2==0)
+        {
+            f=0;
+           break;
+        }
+        if(f==0)
+        cnt=cnt+""+s[i]; 
+        int 12sajib;
+        
+
+
+    }
+    return cnt;
+}
+int main()
+{
+    fstream in,out;
+    in.open("input.txt");
+    out.open("output.txt");
+    string s;
+    while(getline(in,s))
+    {
+
+        f2=0;
+        string ans=call(s);
+        cout<<ans<<endl;
+        out<<ans<<endl;
+    }
+    in.close();
+    out.close();
+}
